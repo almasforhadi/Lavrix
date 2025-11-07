@@ -1,0 +1,29 @@
+body.order-history-page {
+  font-family: "Poppins", "Inter", sans-serif;
+  background: #f7f7f7 !important;
+  scroll-behavior: smooth;
+  color: #111;
+  letter-spacing: 0.3px;
+}
+.order-history-page table {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.order-history-page .badge {
+    font-size: 0.85rem;
+    padding: 0.4em 0.7em;
+    border-radius: 12px;
+}
+
+.order-history-page .btn-gradient-primary {
+    background: linear-gradient(135deg, #6d28d9, #7c3aed);
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3);
+    transition: all 0.25s ease;
+}
+.order-history-page .btn-gradient-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.35);
+}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block body_class %}category-list-page{% endblock %}
+{% load static %}
+{% block content %}
+<section class="categories-section py-5 text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-5">Shop by Category</h2>
+    <div class="row g-4 justify-content-center">
+      {% for cat in categories %}
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <a href="{% url 'shop:product_list' %}?category={{ cat.slug }}" class="text-decoration-none text-dark">
+          <div class="category-card rounded-4 shadow-sm overflow-hidden">
+            {% if cat.image %}
+              <img src="{{ cat.image.url }}" alt="{{ cat.name }}" class="w-100" style="height: 220px; object-fit: cover;">
+            {% else %}
+              <img src="{% static 'images/no-category.jpg' %}" alt="{{ cat.name }}" class="w-100" style="height: 220px;">
+            {% endif %}
+            <div class="p-3 bg-white">
+              <h5 class="fw-semibold">{{ cat.name }}</h5>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% empty %}
+      <p class="text-muted">No categories yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

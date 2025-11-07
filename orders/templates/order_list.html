@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-4">
+  <h3 class="mb-4">🧾 My Orders</h3>
+
+  {% if orders %}
+    <div class="table-responsive shadow-sm">
+      <table class="table table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>ID</th>
+            <th>Status</th>
+            <th>Total Price</th>
+            <th>Items</th>
+            <th>Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in orders %}
+          <tr>
+            <td>#{{ order.id }}</td>
+            <td><span class="badge bg-info text-dark">{{ order.status|title }}</span></td>
+            <td>${{ order.total_price }}</td>
+            <td>{{ order.total_items }}</td>
+            <td>{{ order.created_at|date:"M d, Y" }}</td>
+            <td>
+              <a href="{% url 'orders:order_detail' order.id %}" class="btn btn-sm btn-outline-primary">View</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p>No orders found.</p>
+  {% endif %}
+</div>
+{% endblock %}

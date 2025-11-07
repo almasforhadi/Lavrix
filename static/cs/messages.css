@@ -1,0 +1,91 @@
+/* Container animation & positioning */
+#django-messages {
+  animation: fadeInDown 0.5s ease-out;
+  width: 100%;
+  max-width: 600px;
+  z-index: 2000;
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none; 
+}
+
+/* Each alert styling */
+#django-messages .alert {
+  pointer-events: auto; 
+  border-left: 6px solid transparent;
+  background: #fff;
+  color: #222;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0.8rem;
+}
+
+
+#django-messages .alert:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+
+.alert-success {
+  border-left-color: #198754; 
+  background: #d1e7dd;
+  color: #0f5132;
+}
+
+.alert-info {
+  border-left-color: #0dcaf0; 
+  background: #cff4fc;
+  color: #055160;
+}
+
+.alert-warning {
+  border-left-color: #ffc107; 
+  background: #fff3cd;
+  color: #664d03;
+}
+
+.alert-danger {
+  border-left-color: #dc3545; 
+  background: #f8d7da;
+  color: #842029;
+}
+
+/* Close button */
+#django-messages .btn-close {
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+#django-messages .btn-close:hover {
+  opacity: 1;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -15px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+
+@media (max-width: 400px) {
+  #django-messages {
+    width: 95%;
+    max-width: none;
+    padding: 0 0.5rem;
+  }
+  #django-messages .alert {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}

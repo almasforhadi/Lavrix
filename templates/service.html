@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block body_class %}service-page{% endblock %}
+{% load static %}
+{% block content %}
+<!-- ======== Hero Section ======== -->
+<section class="service-hero position-relative text-center text-white py-0" style="background: url('{% static 'images/service-banner.jpg' %}') center/cover no-repeat; min-height: 400px;">
+  <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.55);"></div>
+  <div class="container position-relative z-1 py-5">
+    <h1 class="fw-bold display-5 mb-0">Our Premium Leather Services</h1>
+    <p class="lead text-light w-75 mx-auto mb-0">
+      Crafted with passion, refined with care — experience world-class leather maintenance, customization, and restoration.
+    </p>
+  </div>
+</section>
+
+<!-- ======== Services Section ======== -->
+<section class="services-section py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4">What We Offer</h2>
+    <p class="text-muted mb-5 w-75 mx-auto">
+      From bespoke leather designs to expert repair and restoration — every service is designed to bring timeless elegance to your leather products.
+    </p>
+
+    <div class="row g-4">
+      <!-- Service 1 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card border-0 shadow-sm p-4 rounded-4 h-100 service-card">
+          <div class="icon mb-3">
+            <i class="bi bi-brush fs-1 text-warning"></i>
+          </div>
+          <h5 class="fw-semibold mb-2">Leather Cleaning & Care</h5>
+          <p class="text-muted small">
+            Deep cleaning and conditioning using premium-grade oils to preserve the natural texture and sheen of your leather.
+          </p>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card border-0 shadow-sm p-4 rounded-4 h-100 service-card">
+          <div class="icon mb-3">
+            <i class="bi bi-scissors fs-1 text-warning"></i>
+          </div>
+          <h5 class="fw-semibold mb-2">Custom Leather Design</h5>
+          <p class="text-muted small">
+            Tailor-made leather bags, belts, and wallets — designed by expert artisans for a truly personalized experience.
+          </p>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card border-0 shadow-sm p-4 rounded-4 h-100 service-card">
+          <div class="icon mb-3">
+            <i class="bi bi-tools fs-1 text-warning"></i>
+          </div>
+          <h5 class="fw-semibold mb-2">Leather Repair & Restoration</h5>
+          <p class="text-muted small">
+            From scratch removal to color revival — our experts restore aged leather back to its original luxury look.
+          </p>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card border-0 shadow-sm p-4 rounded-4 h-100 service-card">
+          <div class="icon mb-3">
+            <i class="bi bi-palette fs-1 text-warning"></i>
+          </div>
+          <h5 class="fw-semibold mb-2">Leather Dyeing & Finishing</h5>
+          <p class="text-muted small">
+            Professional recoloring services with eco-friendly dyes to give your leather a refreshed, modern tone.
+          </p>
+        </div>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card border-0 shadow-sm p-4 rounded-4 h-100 service-card">
+          <div class="icon mb-3">
+            <i class="bi bi-shield-check fs-1 text-warning"></i>
+          </div>
+          <h5 class="fw-semibold mb-2">Waterproof Protection</h5>
+          <p class="text-muted small">
+            Advanced water and stain-proof coating that protects your leather goods from moisture and daily wear.
+          </p>
+        </div>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card border-0 shadow-sm p-4 rounded-4 h-100 service-card">
+          <div class="icon mb-3">
+            <i class="bi bi-box-seam fs-1 text-warning"></i>
+          </div>
+          <h5 class="fw-semibold mb-2">Corporate Gifting Solutions</h5>
+          <p class="text-muted small">
+            Premium handcrafted leather gift sets for businesses — customized branding and packaging available.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== CTA Section ======== -->
+<section class="cta-section py-5 text-white text-center" style="background: url('{% static 'images/leather-texture-dark.jpg' %}') center/cover no-repeat;">
+  <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0,0,0,0.6);"></div>
+  <div class="container position-relative z-1">
+    <h2 class="fw-bold mb-3">Need Custom Leather Work?</h2>
+    <p class="mb-4 text-light w-75 mx-auto">
+      Let our expert artisans bring your idea to life. From personalized designs to luxury restoration — we’re here to help.
+    </p>
+    <a href="{% url 'support:support' %}" class="btn">
+      Contact Support
+    </a>
+  </div>
+</section>
+
+{% endblock %}

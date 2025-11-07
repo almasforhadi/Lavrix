@@ -1,0 +1,145 @@
+.footer {
+  background: #0b0b0b;
+  color: #d6d6d6;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-inner {
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #d4af37;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.2rem;
+}
+
+.footer-title {
+  color: #d4af37;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.6px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.footer-title::after {
+  content: "";
+  display: block;
+  width: 35px;
+  height: 2px;
+  background: #d4af37;
+  margin-top: 6px;
+}
+
+.footer-text {
+  font-size: 0.95rem;
+  color: #bfbfbf;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li {
+  margin-bottom: 10px;
+}
+
+.footer-list a {
+  text-decoration: none;
+  color: #c5c5c5;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footer-list a:hover {
+  color: #d4af37;
+  transform: translateX(4px);
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #bfbfbf;
+  font-size: 1.1rem;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #d4af37;
+  border-color: #d4af37;
+  transform: translateY(-2px);
+}
+
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.footer-bottom {
+  color: #999;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+.text-gold {
+  color: #d4af37;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .footer {
+    text-align: center;
+  }
+
+  .footer-inner {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+
+  .footer-title::after {
+    margin: 0.5rem auto 0;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .social-links a {
+    margin: 0 8px;
+  }
+
+  .footer-brand {
+    margin-bottom: 1rem;
+  }
+
+  .footer-text.pe-lg-5 {
+    padding-right: 0 !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-inner {
+    padding-top: 50px;
+    padding-bottom: 30px;
+  }
+}

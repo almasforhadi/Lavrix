@@ -1,0 +1,109 @@
+/*--------------------------------login--------------------------------------------*/
+body.login-page {
+    font-family: "Inter", "Poppins", sans-serif;
+    background: #f8f9fa;
+    scroll-behavior: smooth;
+    min-height: 100vh;
+}
+.login-section {
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    background: #ffffff;
+    padding: 3rem 2rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.login-card:hover {
+    transform: none;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.12);
+}
+
+.login-card .text-gradient {
+
+    background: #212529;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.login-card p {
+    color: #6c757d;
+}
+
+.login-card .form-group {
+    margin-bottom: 1.3rem;
+}
+
+
+.login-card label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #495057;
+}
+
+.login-card input[type="text"],
+.login-card input[type="email"],
+.login-card input[type="password"] {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border-radius: 50px;
+    border: 1px solid #ced4da;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.login-card input:focus {
+    outline: none;
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.2);
+}
+
+.login-card .text-danger {
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.login-card .btn-primary {
+    width: 100%;
+    padding: 0.6rem 0;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.login-card .btn-primary:hover {
+    background-color: #0b5ed7;
+}
+
+.login-card p.text-center a {
+    color: #0d6efd;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.login-card p.text-center a:hover {
+    text-decoration: underline;
+}
+
+.alert {
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+}
+
+@media(max-width: 576px) {
+    .login-card {
+        padding: 2rem 1.5rem;
+    }
+}
+

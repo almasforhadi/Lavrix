@@ -1,0 +1,199 @@
+body.support-page {
+  font-family: "Inter", "Poppins", sans-serif;
+  background: #f8f9fa;
+  scroll-behavior: smooth;
+  color: #212529;
+}
+
+.support-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1rem 6rem;
+  background: #ffffff !important;
+  text-align: center;
+  position: relative;
+  margin-top: 50px;
+}
+
+.support-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 25% 80%, rgba(0, 123, 255, 0.05), transparent 70%),
+              radial-gradient(circle at 85% 20%, rgba(0, 123, 255, 0.03), transparent 70%);
+  z-index: 0;
+}
+
+.support-section h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #0a2238;
+  margin-bottom: 1rem;
+}
+
+.support-section p {
+  font-size: 1.1rem;
+  color: #6c757d;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+}
+
+.card {
+  border: none;
+  border-radius: 1.5rem;
+  background: #ccecea;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1.5rem;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  background: #eef1f1 !important;
+  box-shadow: 0 18px 40px rgba(0, 123, 255, 0.2);
+}
+
+.card i {
+  font-size: 4.5rem;
+  color: #007bff;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.card:hover i {
+  transform: scale(1.15);
+  color: #0069d9;
+}
+
+
+.card h5 {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #0a2238;
+  margin-top: 0.8rem;
+}
+
+.card p {
+  color: #6c757d;
+  font-size: 0.95rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.card a.btn {
+  border-radius: 50px;
+  font-weight: 600;
+  padding: 0.6rem 1.8rem;
+  letter-spacing: 0.4px;
+  text-decoration: none !important;
+  display: inline-block;
+  line-height: 1.5;
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.btn-dark {
+  background: #007bff;
+  color: #fff !important;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.25);
+}
+
+.btn-dark:hover {
+  background: #0069d9;
+  box-shadow: 0 12px 25px rgba(0, 123, 255, 0.3);
+}
+
+.btn-outline-dark {
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.btn-outline-dark:hover {
+  background: #007bff;
+  color: #fff !important;
+  box-shadow: 0 12px 25px rgba(0, 123, 255, 0.3);
+
+}
+
+
+#faq-section {
+  background: #ffffff;
+  padding: 6rem 1rem;
+}
+
+#faq-section h3 {
+  font-family: "Playfair Display", serif;
+  color: #000000;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.accordion-button {
+  color: #0a2238;
+  font-weight: 600;
+  border-radius: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.accordion-button:not(.collapsed) {
+  background: #007bff;
+  color: #fff;
+}
+
+
+.contact-support {
+  background: #007bff;
+  color: #fff;
+  padding: 5rem 1rem;
+  text-align: center;
+  position: relative;
+  border-radius: 1.5rem;
+  margin-top: 4rem;
+}
+
+.contact-support h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color:white
+}
+
+.contact-support p,
+.contact-support .fw-semibold {
+  color: #f8f9fa;
+}
+
+.contact-support i {
+  margin-right: 0.5rem;
+}
+
+
+@media (max-width: 768px) {
+  .support-section h1 {
+    font-size: 2rem;
+  }
+  .card {
+    min-height: 320px;
+    padding: 1.5rem 1rem;
+  }
+  .card i {
+    font-size: 3.5rem;
+  }
+  #faq-section h3 {
+    font-size: 1.7rem;
+  }
+  .contact-support h3 {
+    font-size: 1.8rem;
+  }
+}

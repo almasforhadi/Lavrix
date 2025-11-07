@@ -1,0 +1,219 @@
+body.dashboard-page {
+  font-family: "Poppins", "Inter", sans-serif;
+  background: #f3f4f6;
+  color: #111111;
+  scroll-behavior: smooth;
+  letter-spacing: 0.3px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* DASHBOARD CONTAINER */
+.dashboard {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-direction: row;
+  min-height: 100vh;
+  height: 100%;
+  align-items: stretch;
+  margin-top: 50px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  background: #ffffff;
+  color: #111111 !important;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+}
+
+.sidebar .brand h4 {
+  color: #0d6efd;
+  font-weight: 700;
+}
+
+.sidebar .brand small {
+  color: #6c757d;
+}
+
+.sidebar .nav-link {
+  color: #000000 !important;
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: flex;
+  gap:8px;
+  align-items: center;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar .nav-link i {
+  font-size: 1.2rem;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  background: #e3ecf8;
+  color: #0d6efd;
+}
+
+/*  Remove underline from sidebar nav links completely */
+.sidebar .nav-link,
+.sidebar .nav-link:hover,
+.sidebar .nav-link:focus,
+.sidebar .nav-link:active,
+.sidebar .nav-link:visited {
+  font-weight: 599;
+  text-decoration: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  color: inherit !important;
+}
+
+/* Optional: ensure no pseudo-element underline */
+.sidebar .nav-link::after,
+.sidebar .nav-link::before {
+  display: none !important;
+  content: none !important;
+}
+
+
+
+/* MAIN AREA */
+.main {
+  flex-grow: 1;
+  background: #ffffff !important;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main h3,
+.main h5,
+.main h6,
+.main label,
+.main td,
+.main th {
+  color: #111111 !important;
+}
+
+/* STATS */
+.icon-circle {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin: 0 auto;
+}
+
+.stat {
+  border-radius: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.stat:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* CHART AREA */
+.equal-charts .card {
+  height: 400px;
+}
+
+/* CARDS GENERAL */
+.card {
+  border: none;
+  border-radius: 1rem;
+  background: #cde6eb;
+}
+/* CARD & STAT SMOOTH HOVER */
+.card,
+.stat {
+  border-radius: 1rem;
+  background: #cde6eb;
+  border: none;
+  transition: all 0.3s ease; 
+}
+
+.card:hover,
+.stat:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px); /
+}
+
+
+.table th {
+  background: #f2f3f5;
+  font-weight: 600;
+}
+
+.table td {
+  color: #222;
+}
+
+.btn {
+  font-weight: 500;
+}
+
+/* All other cards — smooth shadow only, no jumping */
+.card:hover:not(.stat) {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transform: none;
+}
+
+
+
+@media (max-width: 992px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2px;
+    align-items: center;
+    border-right: none;
+    border-bottom: 1px solid #dee2e6;
+    padding: 0.75rem;
+    position: relative;
+  }
+
+  .sidebar .brand {
+    display: none;
+  }
+
+  .sidebar .nav-link {
+    font-size: 0.9rem;
+    padding: 8px;
+    justify-content: center;
+  }
+
+  .main {
+    padding: 1rem;
+    min-height: auto;
+  }
+}
+
+/* PERFECT ALIGNMENT FIX */
+.dashboard,
+.sidebar,
+.main {
+  align-items: stretch;
+}

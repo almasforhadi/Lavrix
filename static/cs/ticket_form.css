@@ -1,0 +1,12 @@
+/*---------------------------ticket_form-----------------------*/
+body.ticket_form, body.ticket_detail, body.ticket_list {
+  font-family: "Inter", "Poppins", sans-serif;
+  background: #fcf2f2 !important;
+  scroll-behavior: smooth;
+}
+
+/* Labels */
+body.ticket_form label {
+    color: black !important;
+    font-weight: 600;
+}

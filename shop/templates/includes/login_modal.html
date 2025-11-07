@@ -1,0 +1,16 @@
+{% load static %}
+
+<!-- Login Modal -->
+<div id="loginModal" class="login-modal-overlay" style="display:none;">
+  <div class="login-modal-box text-center">
+    <h2 class="modal-title mb-2">🔒 Login Required</h2>
+    <p class="modal-text mb-4">
+      Please log in or create an account to add items to your cart.
+    </p>
+    <div class="modal-buttons d-flex justify-content-center gap-3 flex-wrap">
+      <a href="{% url 'accounts:login' %}" class="btn btn-dark px-4 py-2 fw-semibold shadow">Login</a>
+      <a href="{% url 'accounts:signup' %}" class="btn btn-outline-dark px-4 py-2 fw-semibold">Sign Up</a>
+    </div>
+    <button class="btn-close-modal btn btn-link mt-4 text-secondary small">Cancel</button>
+  </div>
+</div>

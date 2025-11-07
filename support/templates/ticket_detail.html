@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block body_class %}ticket_detail{% endblock %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="container py-4">
+    <h2>Ticket #{{ ticket.id }} — {{ ticket.subject }}</h2>
+    <p>Status: <strong>{{ ticket.status }}</strong></p>
+    <p>{{ ticket.message|linebreaks }}</p>
+    <hr>
+    <h4>Responses:</h4>
+    {% for res in responses %}
+        <div class="border p-2 mb-2">
+            <p>{{ res.message }}</p>
+            <small class="text-muted">By {{ res.responder.username }} at {{ res.created_at|date:"M d, Y H:i" }}</small>
+        </div>
+    {% empty %}
+        <p>No responses yet.</p>
+    {% endfor %}
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button class="btn btn-success mt-2">Add Response</button>
+    </form>
+</div>
+{% endblock %}

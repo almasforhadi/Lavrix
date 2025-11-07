@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Login{% endblock %}
+{% block body_class %}login-page{% endblock %}
+{% load static %}
+
+{% block content %}
+<!-- Django Messages -->
+{% if messages %}
+  <div id="django-messages" class="position-fixed top-0 start-50 translate-middle-x mt-5" style="z-index: 2000; width: 90%; max-width: 600px;">
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow-lg rounded-3 py-2 px-3" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<script>
+  setTimeout(() => {
+    const alerts = document.querySelectorAll('#django-messages .alert');
+    alerts.forEach(alert => bootstrap.Alert.getOrCreateInstance(alert).close());
+  }, 5000);
+</script>
+
+
+<section class="login-section d-flex justify-content-center align-items-center">
+    <div class="login-card col-lg-5 col-md-7 col-sm-10 p-5 shadow-lg rounded-4">
+        
+        <h2 class="text-center fw-bold mb-3 text-gradient">🔑 Login to Your Account</h2>
+        <p class="text-center text-muted mb-4">Access your account and enjoy premium features.</p>
+
+        <!-- Messages -->
+        {% comment %} {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %} {% endcomment %}
+
+        <!-- Login Form -->
+        <form method="POST" novalidate>
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group mb-3">
+                    <label class="form-label fw-semibold">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="text-danger small mt-1">
+                            {% for error in field.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 mt-2">Login</button>
+        </form>
+
+        <p class="text-center mt-3 small">
+            Don't have an account? <a href="{% url 'accounts:signup' %}">Sign Up here</a>
+        </p>
+        <p class="text-center mt-1 small">
+            {% comment %} <a href="{% url 'accounts:password_reset' %}">Forgot Password?</a> {% endcomment %}
+        </p>
+
+    </div>
+</section>
+{% endblock %}

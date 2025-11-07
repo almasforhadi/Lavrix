@@ -1,0 +1,166 @@
+/*----------------------------------ticket_list.html---------------------*/
+.container.py-4 {
+  min-height: calc(100vh - 100px); /* adjust 100px based on header/footer height */
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  background: #ffffff;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 25px rgba(0, 100, 150, 0.08);
+  padding: 3rem 2.5rem !important;
+  margin: 3rem auto;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.container.py-4 h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0e1b2a;
+  text-align: center;
+  margin-bottom: 1.8rem;
+}
+
+/* Create New Ticket Button */
+.container.py-4 .btn-primary {
+  display: inline-block;
+  background: linear-gradient(90deg, #009adf, #007bff);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 0.7rem 1.8rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 140, 220, 0.2);
+}
+
+.container.py-4 .btn-primary:hover {
+  background: linear-gradient(90deg, #008ccf, #006ae0);
+  transform: translateY(-2px);
+}
+
+/* ================================
+   TABLE (Desktop)
+   ================================ */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+
+.table thead th {
+  background: #f1f6fa;
+  color: #0e1b2a;
+  font-weight: 600;
+  border-bottom: 2px solid #e0edf4;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.table tbody tr {
+  background: #ffffff;
+  border-bottom: 1px solid #eef3f7;
+  transition: all 0.25s ease;
+}
+
+.table tbody tr:hover {
+  background: #f8fcff;
+  transform: scale(1.005);
+}
+
+.table tbody td {
+  padding: 0.9rem 1rem;
+  vertical-align: middle;
+  text-align: center;
+  color: #1a2734;
+  font-size: 1.05rem;
+}
+
+.table tbody td a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.table tbody td a:hover {
+  color: #009bdf;
+  text-decoration: underline;
+}
+
+/* Empty State */
+.table tbody tr td[colspan="4"] {
+  text-align: center;
+  color: #5f6d7a;
+  font-style: italic;
+  background: #f9fcff;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+/* ================================
+   RESPONSIVE (Mobile)
+   ================================ */
+
+@media (max-width: 768px) {
+  .container.py-4 {
+    padding: 2rem 1.4rem !important;
+  }
+
+  .container.py-4 h2 {
+    font-size: 1.7rem;
+  }
+
+  /* Hide table header */
+  .table thead {
+    display: none;
+  }
+
+  /* Each row becomes a card */
+  .table tbody tr {
+    display: block;
+    background: #ffffff;
+    margin-bottom: 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    padding: 1rem 1.2rem;
+  }
+
+  .table tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .table tbody td:last-child {
+    border-bottom: none;
+  }
+
+  /* Label before each data (mimic header names) */
+  .table tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #007bff;
+    flex-basis: 45%;
+  }
+
+  /* Make links more readable on small screens */
+  .table tbody td a {
+    color: #005bb5;
+    font-weight: 600;
+    text-decoration: none;
+    word-break: break-word;
+  }
+
+  /* Better card spacing for clarity */
+  .table tbody tr td {
+    line-height: 1.4;
+  }
+}

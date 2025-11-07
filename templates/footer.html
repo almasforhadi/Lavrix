@@ -1,0 +1,68 @@
+<footer class="footer mt-5">
+  <div class="footer-inner container py-5">
+    <div class="row gy-5 justify-content-between">
+
+      <!-- Brand Info -->
+      <div class="col-lg-4 col-md-6">
+        <h4 class="footer-brand">WildWoven Leather</h4>
+        <p class="footer-text pe-lg-5">
+          Where timeless craftsmanship meets modern sophistication. 
+          Every piece is handcrafted for those who value authenticity and artistry.
+        </p>
+
+        <div class="social-links mt-4">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="col-lg-2 col-md-6">
+        <h5 class="footer-title">Shop</h5>
+        <ul class="footer-list">
+          <li><a href="{% url 'shop:product_list' %}">All Products</a></li>
+          <li><a href="{% url 'shop:category_list' %}">Categories</a></li>
+          <li><a href="{% url 'blog:blog_list' %}">Journal</a></li>
+          <li><a href="{% url 'support:support' %}">Support</a></li>
+        </ul>
+      </div>
+
+      <!-- Customer Care -->
+      <div class="col-lg-3 col-md-6">
+        <h5 class="footer-title">Customer Care</h5>
+        <ul class="footer-list">
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Warranty Policy</a></li>
+          <li><a href="#">Privacy & Terms</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-lg-3 col-md-6">
+        <h5 class="footer-title">Contact</h5>
+        <p class="footer-text mb-2">
+          <strong>Email:</strong> support@wildwoven.com<br>
+          <strong>Phone:</strong> +1 (800) 987-6543
+        </p>
+        <p class="footer-text small mb-0">
+          Mon–Fri: 9:00 AM – 6:00 PM<br>
+          125 Artisan Avenue, NY, USA
+        </p>
+      </div>
+
+    </div>
+
+    <hr class="footer-divider my-5">
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom text-center">
+      <p class="mb-0 small">
+        © {{ now|date:"Y" }} WildWoven Leather — Crafted with 
+        <i class="fa fa-heart text-gold"></i> by Artisans.
+      </p>
+    </div>
+  </div>
+</footer>

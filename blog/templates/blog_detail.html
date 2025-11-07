@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block body_class %}blog-details-page{% endblock %}
+{% block content %}
+<section class="blog-detail-section py-5">
+  <div class="container-xl">
+
+    <!-- Main Article -->
+    <article class="mb-5">
+      <h1 class="post-title fw-bold mb-2">{{ post.title }}</h1>
+      <p class="post-meta text-muted small mb-4">
+        By <span class="fw-semibold">{{ post.author }}</span> • {{ post.created_at|date:"F d, Y" }}
+        {% if post.category %}• <span class="text-primary">{{ post.category.name }}</span>{% endif %}
+      </p>
+
+      {% if post.image %}
+      <div class="featured-image mb-4">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid rounded shadow-sm w-100">
+      </div>
+      {% endif %}
+
+      <div class="post-content fs-6 text-secondary">
+        {{ post.content|safe }}
+      </div>
+    </article>
+
+    <!-- Related Posts -->
+    {% if related_posts %}
+    <hr class="my-5">
+    <h3 class="fw-bold mb-4">Related Posts</h3>
+    <div class="row g-4">
+      {% for r in related_posts %}
+      <div class="col-md-4">
+        <div class="related-card overflow-hidden rounded shadow-sm h-100 d-flex flex-column">
+          {% if r.image %}
+          <div class="related-image">
+            <img src="{{ r.image.url }}" alt="{{ r.title }}" class="img-fluid w-100">
+          </div>
+          {% else %}
+          <div class="related-image">
+            <img src="{% static 'images/default_blog.jpg' %}" alt="Default Image" class="img-fluid w-100">
+          </div>
+          {% endif %}
+          <div class="related-content p-3 flex-grow-1 d-flex flex-column">
+            <h5 class="fw-semibold mb-3">{{ r.title }}</h5>
+            <a href="{% url 'blog:blog_detail' r.slug %}" class="btn btn-outline-primary mt-auto rounded-pill btn-sm">
+              Read More <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+{% endblock %}

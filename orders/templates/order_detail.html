@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-5">
+  <h4 class="mb-4">Order #{{ order.id }}</h4>
+
+  <div class="card shadow-sm mb-4 border-0 rounded-4">
+    <div class="card-body">
+      <p><strong>Status:</strong> 
+        <span class="badge 
+          {% if order.status == 'delivered' %} bg-success 
+          {% elif order.status == 'pending' %} bg-warning text-dark 
+          {% elif order.status == 'cancelled' %} bg-danger 
+          {% elif order.status == 'processing' %} bg-info text-dark 
+          {% else %} bg-secondary {% endif %}">
+          {{ order.status|title }}
+        </span>
+      </p>
+
+      <p><strong>Total Price:</strong> ${{ order.total_price }}</p>
+      <p><strong>Total Items:</strong> {{ order.total_items }}</p>
+      <p><strong>Date:</strong> {{ order.created_at|date:"M d, Y H:i" }}</p>
+
+      {% if user.is_staff %}
+        <a href="{% url 'orders:update_order_status' order.id %}" 
+           class="btn btn-outline-secondary btn-sm">
+          Update Status
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+  <h5 class="mb-3">🛒 Order Items</h5>
+  <div class="table-responsive">
+    <table class="table table-striped align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Price (Each)</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in order.items.all %}
+        <tr>
+          <td>{{ item.product.name }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>${{ item.price_at_purchase }}</td>
+          <td>${{ item.total }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

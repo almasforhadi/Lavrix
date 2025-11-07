@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% block body_class %}home{% endblock %}
+{% load static %}
+{% block content %}
+
+
+<!-- Django Messages -->
+{% if messages %}
+  <div id="django-messages" class="position-fixed top-0 start-50 translate-middle-x mt-3" style="z-index: 2000; width: 90%; max-width: 600px;">
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow-lg rounded-3 py-2 px-3" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
+<script>
+  setTimeout(() => {
+    const alerts = document.querySelectorAll('#django-messages .alert');
+    alerts.forEach(alert => bootstrap.Alert.getOrCreateInstance(alert).close());
+  }, 5000);
+</script>
+
+
+<!-- Hero Section -->
+<section class="hero bg-dark text-white text-center py-5" style="background-image: url('{% static 'images/hero-bg.jpg' %}'); background-size: cover; background-position: center;">
+  <div class="container">
+    <h1 class="display-4 fw-bold text-shadow">Premium Leather. Timeless Style.</h1>
+    <p class="lead mb-4 text-shadow">Discover handcrafted leather products made to last a lifetime. Inspired by the age-old heritage and craftsmanship, WildWoven Leather Products is offering you the finest quality leather accessories that are made to last. All the minimal yet functional products are designed and handcrafted in our own workshop by some of the best local artisans to complement your personality and style admirably.</p>
+    <a href="{% url 'shop:product_list' %}" class="btn btn-light px-4 py-2 rounded-pill shadow-lg">Shop Now</a>
+  </div>
+</section>
+
+
+
+ <!-- Featured Categories -->
+<section class="categories py-5">
+  <div class="container text-center">
+    <h2 class="mb-5 fw-bold text-white" style="letter-spacing:1px;">See Our Categories.</h2>
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-4">
+        <div class="category-card">
+          <img src="{% static 'images/latherbag.png' %}" alt="Leather Bags">
+          <div class="card-overlay">
+            <h5>Leather Bags</h5>
+            <a href="{% url 'shop:category_list'%}" class="category-btn">View More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="category-card">
+          <img src="{% static 'images/classic.png' %}" alt="Classic Wallets">
+          <div class="card-overlay">
+            <h5>Classic Wallets</h5>
+            <a href="{% url 'shop:category_list'%}" class="category-btn">View More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="category-card">
+          <img src="{% static 'images/belt.png' %}" alt="Leather Belts">
+          <div class="card-overlay">
+            <h5>Leather Belts</h5>
+            <a href="{% url 'shop:category_list'%}" class="category-btn">View More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="category-card">
+          <img src="{% static 'images/wallet.png' %}" alt="Wallets">
+          <div class="card-overlay">
+            <h5>Leather Wallets</h5>
+            <a href="{% url 'shop:category_list'%}" class="category-btn">View More</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<!-- All Products  -->
+<section class="products-section">
+  <div class="container">
+    <h2 class="section-title mb-5">Explore Our Collections</h2>
+    <div class="row g-4 justify-content-center">
+      {% for product in products %}
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="product-card">
+            <div class="image-wrapper">
+              {% if product.image_url %}
+                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+              {% else %}
+                <img src="{% static 'images/no-image.jpg' %}" alt="No Image">
+              {% endif %}
+              <div class="overlay">
+                <a href="{% url 'shop:product_detail' product.slug %}" class="all-collection-btn">View</a>
+              </div>
+            </div>
+            <div class="product-info">
+              <h5>{{ product.name }}</h5>
+              <p>${{ product.price }}</p>
+            </div>
+          </div>
+        </div>
+      {% empty %}
+        <p>No products found.</p>
+      {% endfor %}
+    </div>
+    
+    <button id="viewMoreBtn" class="custom-viewmore-btn">View More</button>
+  </div>
+</section>
+
+
+
+
+<!-- Blog / Journal Section -->
+<section class="blog-section">
+  <div class="container">
+    <h2 class="section-title mb-5 text-center">From Our Journal</h2>
+
+    <div class="row g-4 justify-content-center">
+      {% for post in blog_posts %}
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <div class="blog-card">
+          <div class="blog-image">
+            {% if post.image %}
+              <img src="{{ post.image.url }}" alt="{{ post.title }}">
+            {% else %}
+              <img src="{% static 'images/no-image.jpg' %}" alt="No Image">
+            {% endif %}
+            <div class="blog-overlay">
+              <a href="{% url 'blog:blog_detail' post.slug %}" class="read_more_btn">Read More</a>
+            </div>
+          </div>
+          <div class="blog-content text-start">
+            <p class="blog-date">{{ post.created_at|date:"F d, Y" }}</p>
+            <h5 class="blog-title">{{ post.title|truncatechars:70 }}</h5>
+            {% if post.category %}
+              <p class="blog-category">{{ post.category.name }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <p class="text-muted text-center">No blog posts yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section> 
+
+
+
+
+<!-- Support Section -->
+ <section class="home-support-section">
+  <div class="home-container">
+    <div class="home-support-box text-center">
+      <h2 class="home-support-title">Need Help?</h2>
+      <p class="home-support-text">
+        Our friendly support team is here to assist you with your orders, product inquiries, or any other questions.  
+        We respond quickly to ensure your experience is seamless.
+      </p>
+      <a href="{% url 'support:support' %}" class="need-help-btn">Contact Support</a>
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock %}

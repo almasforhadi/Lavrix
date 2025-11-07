@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %}{{ page_title }}{% endblock %}
+{% block body_class %}blog-list-page{% endblock %}
+{% load static %}
+{% block content %}
+
+<section class="blog-list-section py-5">
+  <div class="container-xl">
+    <div class="row gx-5">
+      
+      <!-- Sidebar -->
+      <aside class="col-lg-3 col-md-4 mb-5 mb-md-0">
+        <div class="category-sidebar">
+          <h4 class="fw-bold mb-4 text-uppercase border-bottom pb-3 text-secondary">Categories</h4>
+          <ul class="category-list list-unstyled">
+            <li>
+              <a href="{% url 'blog:blog_list' %}"
+                 class="category-link {% if not active_category %}active{% endif %}">
+                All Posts
+              </a>
+            </li>
+            {% for cat in categories %}
+            <li>
+              <a href="{% url 'blog:blog_by_category' cat.slug %}"
+                 class="category-link {% if active_category == cat %}active{% endif %}">
+                {{ cat.name }}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Blog List -->
+      <div class="col-lg-9 col-md-8">
+        {% if posts %}
+          {% for post in posts %}
+          <article class="blog-article d-flex flex-column flex-md-row align-items-start mb-5 pb-5 border-bottom border-2 border-dashed">
+            
+            <!-- Image -->
+            <div class="blog-img me-md-5 mb-4 mb-md-0 flex-shrink-0">
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid rounded-3 shadow-sm" style="width: 340px; height: 210px; object-fit: cover;">
+            {% else %}
+                <img src="{% static 'images/default_blog.jpg' %}" alt="Default Image" class="img-fluid rounded-3 shadow-sm" style="width: 340px; height: 210px; object-fit: cover;">
+            {% endif %}
+            </div>
+
+
+            <!-- Content -->
+            <div class="blog-content flex-grow-1 pe-md-3">
+              {% if post.category %}
+                <span class="text-uppercase small fw-semibold text-primary d-inline-block mb-2">{{ post.category.name }}</span>
+              {% endif %}
+              <h3 class="fw-bold mb-3">
+                <a href="{% url 'blog:blog_detail' post.slug %}" class="text-decoration-none text-dark hover-link">{{ post.title }}</a>
+              </h3>
+              <p class="text-secondary mb-4">{{ post.excerpt|truncatewords:30 }}</p>
+
+              <div class="d-flex flex-wrap align-items-center gap-3 text-muted small mb-3">
+                <span><i class="bi bi-person"></i> {{ post.author }}</span>
+                <span><i class="bi bi-calendar3"></i> {{ post.created_at|date:"M d, Y" }}</span>
+              </div>
+
+              <a href="{% url 'blog:blog_detail' post.slug %}" class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                Read More <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+            </div>
+
+          </article>
+          {% endfor %}
+        {% else %}
+        <div class="text-center py-5">
+          <h5 class="text-muted mb-3">No posts available in this category.</h5>
+          <a href="{% url 'blog:blog_list' %}" class="btn btn-primary">Back to All Posts</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
