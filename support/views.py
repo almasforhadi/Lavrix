@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import SupportTicket, SupportResponse
 from .forms import SupportTicketForm, SupportResponseForm
-from django.core.mail import send_mail
 
 
 
@@ -46,14 +45,6 @@ def create_ticket(request):
             ticket = form.save(commit=False)
             ticket.user = request.user
             user = ticket.save()
-            send_mail(
-                "Your new support ticket submitted to the Admin.",
-                "Wait for the admin respond.\nThank you",
-                None,
-                [request.user.email],
-                fail_silently=False,
-            )
-
             messages.success(request, "Your support ticket has been submitted successfully.")
             return redirect('support:ticket_list')  # app_name + view_name
     else:

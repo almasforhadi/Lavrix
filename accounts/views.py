@@ -5,7 +5,6 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
-from django.core.mail import send_mail
 
 
 
@@ -18,13 +17,6 @@ def signup(request):
         form = SignupForm(request.POST)
         if form.is_valid():
             user = form.save()
-            send_mail(
-                "Welcome to Your Account!",
-                "Your account has been successfully created in Lavrix.\nEnjoy your experience!",
-                None,
-                [user.email],
-                fail_silently=False,
-            )
             messages.success(request, "Account created successfully.")
             return redirect('accounts:login')
         else:
