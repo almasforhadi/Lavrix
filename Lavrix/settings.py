@@ -89,20 +89,20 @@ WSGI_APPLICATION = 'Lavrix.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-
 # DATABASES = {
-#     'default': dj_database_url.config(
-#         default='postgresql://lavrix_db_hzu7_user:WN0xmAow1YVCnt2cbGccjRetVZ7MVmEb@dpg-d470ok9r0fns73bhsgj0-a.oregon-postgres.render.com/lavrix_db_hzu7',
-#         conn_max_age=600
-#     )
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
 # }
+
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default='postgresql://lavrix_db_hzu7_user:WN0xmAow1YVCnt2cbGccjRetVZ7MVmEb@dpg-d470ok9r0fns73bhsgj0-a.oregon-postgres.render.com/lavrix_db_hzu7',
+        conn_max_age=600
+    )
+}
 
 
 # Password validation
